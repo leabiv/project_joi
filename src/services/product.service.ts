@@ -1,4 +1,4 @@
-import { Product } from "../router/product.model";
+import { Product } from "../modules/product.model";
 import { faker } from '@faker-js/faker';
 import  boom  from "@hapi/boom";
 
