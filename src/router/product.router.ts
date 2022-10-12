@@ -3,6 +3,8 @@ import { ProductsServices } from '../services/product.service'
 import { validatorHandler, validatorHandlerParams, validatorHandlerBody } from '../middlewares/validator.handler'
 import { createProductSchema, updateProductSchema, getProductSchema } from '../schemas/product.schema'
 
+import { HttpException } from '../errors/validationError'
+
 const router = express.Router();
 const service = new ProductsServices();
 
@@ -20,6 +22,7 @@ router.get('/:id',
       const product = await service.findOne(id);
       res.json(product);
     } catch (error) {
+      //const err = new HttpException(404, 'Not Found')
       next(error)
     }
   });

@@ -30,6 +30,7 @@ export function validatorHandlerParams(schema: Joi.Schema, property: any) {
     const param = req.params;
     const { error } = schema.validate(param, { abortEarly: false });
     if (error) {
+      //console.log('Esta es la estructuta del error', error.details)
       next(boom.badRequest('error', error.message))
     }
     next();
